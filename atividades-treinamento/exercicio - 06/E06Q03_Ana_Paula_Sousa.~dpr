@@ -1,0 +1,31 @@
+program E07Q03;
+
+{$APPTYPE CONSOLE}
+{Faça um programa que leia um nome de usuário e a sua senha
+e não aceite a senha igual ao nome do usuário, mostrando
+uma mensagem de erro e voltando a pedir as informações.}
+
+uses
+  SysUtils, StrUtils;
+var
+  sUsuarioNome, sUsuarioSenha : String;
+
+begin
+  Writeln('Crie seu nome de usuario: ');
+  Readln(sUsuarioNome);
+  Writeln('Crie uma senha: ');
+  Readln(sUsuarioSenha);
+
+  if sUsuarioSenha = sUsuarioNome then
+  begin
+  repeat
+  Writeln('A senha nao pode ser igual ao nome de usuario, favor informe outro nome e senha: ');
+  Readln(sUsuarioNome);
+  Readln(sUsuarioSenha);
+  until sUsuarioSenha <> sUsuarioNome;
+  Writeln('Conta criada com sucesso!')
+  end
+  else
+  Writeln('Conta criada com sucesso!');
+  Readln;
+end.

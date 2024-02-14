@@ -1,0 +1,29 @@
+program E06Q04;
+
+{$APPTYPE CONSOLE}
+{Faça um programa que peça dois números, base e expoente.
+Calcule e mostre o primeiro número elevado ao segundo número.
+Não utilize a função de potência da linguagem, mas sim iterações.}
+
+uses
+  SysUtils;
+
+var
+  iContador, iBase, iExpoente, iResultado : Integer;
+
+begin
+
+  Writeln('Digite o numero base: ');
+  Readln(iBase);
+  Writeln('Digite o numero que sera elevado: ');
+  Readln(iExpoente);
+
+iResultado := iBase;
+
+
+  for iContador := 2 to iExpoente do
+    iResultado := iResultado * iBase;
+
+  Writeln('Resultado: ' + IntToStr(iResultado));
+  Readln;
+end.

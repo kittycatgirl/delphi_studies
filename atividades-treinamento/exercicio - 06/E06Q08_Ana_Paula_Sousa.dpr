@@ -1,0 +1,48 @@
+program E06Q08_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+{Numa eleição existem três candidatos. Faça um programa
+que peça o número total de votantes. Peça para cada votante
+votar e ao final mostrar o número de votos de cada candidato.}
+
+uses
+  SysUtils;
+
+var
+  iCandidatoA, iCandidatoB, iCandidatoC, iContador, iTotalVotantes, iVoto : Integer;
+
+begin
+iCandidatoA := 0;
+iCandidatoB := 0;
+iCandidatoC := 0;
+
+Writeln('Digite o numero total de votantes: ');
+Readln(iTotalVotantes);
+
+for iContador := 1 to iTotalVotantes do
+begin
+Writeln('Votante ', iContador, ', por favor, digite o numero do candidato (1, 2 ou 3): ');
+Readln(iVoto);
+
+case iVoto of
+1: Inc(iCandidatoA);
+2: Inc(iCandidatoB);
+3: Inc(iCandidatoC);
+else
+repeat
+Writeln('Voto invalido. Por favor, vote novamente.');
+Readln(iVoto);
+until (iVoto = 1) or (iVoto = 2) or (iVoto = 3);
+case iVoto of
+1: Inc(iCandidatoA);
+2: Inc(iCandidatoB);
+3: Inc(iCandidatoC);
+end;
+end;
+end;
+
+Writeln('Resultado da eleicao:');
+Writeln('Candidato 1: ', iCandidatoA, ' votos; Candidato 2: ', iCandidatoB, ' votos; Candidato 3: ', iCandidatoC, ' votos.');
+
+Readln;
+end.

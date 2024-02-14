@@ -1,0 +1,27 @@
+program E06Q01_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+{Faça um programa que peça uma nota, entre zero e dez.
+Mostre uma mensagem caso o valor seja inválido e continue
+pedindo até que o usuário informe um valor válido.}
+
+uses
+  SysUtils;
+var
+  iNum : Integer;
+
+begin
+  Writeln('Favor dar uma nota entre 0 e 10: ');
+  Readln(iNum);
+  if (iNum >= 0) and (iNum <= 10) then
+  Writeln('Obrigada pela contribuicao.')
+  else
+  begin
+  repeat
+    Writeln('Valor Invalido!!! Favor dar uma nota entre 0 e 10: ');
+    Readln(iNum);
+  until (iNum >= 0) and (iNum <= 10);
+  Writeln('Obrigada pela contribuicao.');
+  end;
+  Readln;
+end.
