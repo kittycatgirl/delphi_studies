@@ -1,0 +1,42 @@
+program E08Q07_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  alturas: array[1..10] of Real;
+  somaAlturas, mediaAlturas: Real;
+  i, atletasAcimaMedia: Integer;
+
+begin
+  somaAlturas := 0;
+  atletasAcimaMedia := 0;
+
+  WriteLn('Digite a altura dos 10 atletas:');
+  for i := 1 to 10 do
+  begin
+    Write('Atleta ', i, ': ');
+    ReadLn(alturas[i]);
+    somaAlturas := somaAlturas + alturas[i];
+  end;
+
+  mediaAlturas := somaAlturas / 10;
+
+  WriteLn('Alturas dos atletas acima da média:');
+  for i := 1 to 10 do
+  begin
+    if alturas[i] > mediaAlturas then
+    begin
+      WriteLn('Atleta ', i, ': ', alturas[i]:0:2);
+      Inc(atletasAcimaMedia);
+    end;
+  end;
+
+  if atletasAcimaMedia = 0 then
+    WriteLn('Nenhum atleta tem altura acima da média.');
+
+  ReadLn;
+end.
+ 

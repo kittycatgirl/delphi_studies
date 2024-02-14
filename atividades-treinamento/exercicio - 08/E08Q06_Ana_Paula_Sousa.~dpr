@@ -1,0 +1,58 @@
+program E08Q06_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+{Faça um algoritmo que leia dois vetores de 10 elementos
+numéricos cada um e intercale os elementos deste em um outro vetor de 20
+elementos.}
+
+uses
+  SysUtils;
+
+var
+  aVetor1, aVetor2: array[1..10] of Integer;
+  aVetorInter: array[1..20] of Integer;
+  iContador, j, k: Integer;
+
+begin
+  WriteLn('Digite os 10 elementos do primeiro vetor:');
+  for iContador := 1 to 10 do
+  begin
+    Write('Elemento ', iContador, ': ');
+    ReadLn(aVetor1[iContador]);
+  end;
+
+  WriteLn('Digite os 10 elementos do segundo vetor:');
+  for iContador := 1 to 10 do
+  begin
+    Write('Elemento ', iContador, ': ');
+    ReadLn(aVetor2[iContador]);
+  end;
+
+  iContador := 1;
+  j := 1;
+  k := 1;
+
+  while k <= 20 do
+  begin
+    if i <= 10 then
+    begin
+      aVetorInter[k] := aVetor1[iContador];
+      Inc(i);
+      Inc(k);
+    end;
+
+    if j <= 10 then
+    begin
+      aVetorInter[k] := aVetor2[j];
+      Inc(j);
+      Inc(k);
+    end;
+  end;
+
+  WriteLn('Vetor intercalado:');
+  for iContador := 1 to 20 do
+    WriteLn(aVetorInter[iContador]);
+
+ReadLn;
+end.

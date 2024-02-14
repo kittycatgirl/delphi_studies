@@ -1,0 +1,86 @@
+program E08Q04_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+{Dado um vetor de 10 elementos contendo letras do alfabeto,
+elabore um algoritmo para verificar quantas vezes
+ocorreu a letra ‘A’. Desenvolva uma validação na
+entrada de dados de modo que o programa somente aceite letras.}
+
+uses
+  SysUtils,
+  Math;
+
+{o math so queria deixar guardado caso
+                   precise de numeros randons
+  while True do
+  begin
+  Writeln(RandomRange(1,100));
+  Sleep(1000);
+  end;  }
+const
+  ABCD = 'ABCDEFGHIJKLMNOPQRSTUVXWZ';
+
+var
+  aLetras : array [1..10] of String;
+  iContagem, iVerificar, iIndice : Integer;
+
+
+begin
+  iVerificar := 0;
+  iIndice := 0;
+
+  Writeln('Digite ate 10 letras: ');
+  for iContagem := Low(aLetras) to High(aLetras) do
+    begin
+     Readln(aLetras[iContagem]);
+     //if aLetras[iContagem] <> ABCD
+     if aLetras[iContagem] = 'A' then
+      begin
+      iVerificar := iVerificar + 1;
+      iIndice := iContagem;
+      end;
+    end;
+
+ if iVerificar >= 1 then
+ begin
+      Writeln('A letra A aparece ');
+      Writeln('E se encontra nos indices: ' + IntToStr(iIndice));
+ end
+ else
+      Writeln('A letra informada NAO existe no vetor');
+
+Readln;
+end.
+
+ {
+var
+  aElemento: array[1..3] of String;
+  iContador, iContadorA: Integer;
+  sLetra: Char;
+
+begin
+  iContadorA := 0;
+
+  for iContador := 1 to 3 do
+  begin
+    repeat
+      Write('Digite o elemento ', iContador, ': ');
+      ReadLn(sLetra);
+    until (sLetra in ['A'..'Z', 'a'..'z']);
+
+    aElemento[iContador] := UpCase(sLetra);
+  end;
+
+  for iContador := 1 to 3 do
+  begin
+    if aElemento[iContador] = 'A' then
+      Inc(iContadorA);
+  end;
+
+  WriteLn('A letra ''A'' ocorreu ', iContadorA, ' vezes no vetor.');
+  
+  ReadLn;
+end.  }
+
+

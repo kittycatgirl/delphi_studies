@@ -1,0 +1,32 @@
+program E08Q08_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+function CalcularCubo(numero: Integer): Integer;
+begin
+  Result := numero * numero * numero;
+end;
+
+var
+  numeros, cubos: array[1..10] of Integer;
+  i: Integer;
+
+begin
+  WriteLn('Digite dez números:');
+  for i := 1 to 10 do
+  begin
+    Write('Número ', i, ': ');
+    ReadLn(numeros[i]);
+    cubos[i] := CalcularCubo(numeros[i]);
+  end;
+
+  WriteLn('Cubos dos números:');
+  for i := 1 to 10 do
+    WriteLn('Número ', i, ': ', cubos[i]);
+
+  ReadLn;
+end.
+ 

@@ -1,0 +1,46 @@
+program E08Q09_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+{Uma pessoa deseja comprar um eletrodoméstico, para isto percorreu 5 lojas.
+Dados dois vetores, um contendo o nome das lojas e o outro o preço,
+desenvolver um algoritmo que calcule e mostre qual foi o menor preço
+encontrado e o nome da loja que tem o menor preço.}
+
+uses
+  SysUtils;
+var
+  lojas: array[1..5] of String;
+  precos: array[1..5] of Real;
+  menorPreco: Real;
+  nomeLojaMenorPreco: String;
+  i: Integer;
+
+begin
+  WriteLn('Digite o nome das 5 lojas e o preço do eletrodoméstico em cada uma:');
+  for i := 1 to 5 do
+  begin
+    Write('Nome da loja ', i, ': ');
+    ReadLn(lojas[i]);
+    Write('Preço do eletrodoméstico na loja ', lojas[i], ': ');
+    ReadLn(precos[i]);
+  end;
+
+  menorPreco := precos[1];
+  nomeLojaMenorPreco := lojas[1];
+
+  for i := 2 to 5 do
+  begin
+    if precos[i] < menorPreco then
+    begin
+      menorPreco := precos[i];
+      nomeLojaMenorPreco := lojas[i];
+    end;
+  end;
+
+  WriteLn('Menor preço encontrado: R$', menorPreco:0:2, ' na loja ', nomeLojaMenorPreco);
+
+  ReadLn;
+end.
+
+{ultimo indice menos o iContador}
