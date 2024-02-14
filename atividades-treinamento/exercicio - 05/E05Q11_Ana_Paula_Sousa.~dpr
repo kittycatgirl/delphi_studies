@@ -1,0 +1,34 @@
+program E05Q11_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+{Faça um algoritmo que receba dois números e ao final mostre a soma,
+subtração, multiplicação e a divisão dos números lidos.
+Realize uma validação caso o usuário informe uma divisão por zero.}
+
+uses
+  SysUtils;
+
+var
+  fNumA, fNumB, fSoma, fSubtracao, fMulti, fDivisao: Double;
+
+begin
+
+Writeln('Informe dois valores: ');
+Readln(fNumA);
+Readln(fNumB);
+
+fSoma := fNumA + fNumB;
+fSubtracao := fNumA - fNumB;
+fMulti := fNumA * fNumB;
+fDivisao := fNumA / fNumB;
+
+if (fNumA <= 0) or (fNumB <= 0) then
+  WriteLn('Resultado (soma, subtracao, multiplicacao e a divisao, respectivamente): ' + FloatToStr(fSoma) +'; '+ FloatToStr(fSubtracao) +'; '+ FloatToStr(fMulti) + '; NAO PODE SER FEITA DIVISAO POR ZERO.')
+else
+  WriteLn('Resultado (soma, subtracao, multiplicacao e a divisao, respectivamente): ' + FloatToStr(fSoma) +'; '+ FloatToStr(fSubtracao) +'; '+ FloatToStr(fMulti) + '; '+FloatToStr(fDivisao));
+
+
+Readln;
+end.
+ 

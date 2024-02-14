@@ -1,0 +1,21 @@
+program E05Q03_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  fNumA, fNumB : Integer;
+
+begin
+
+Writeln('Escreva dois valores: ');
+Readln(fNumA);
+Readln(fNumB);
+
+Writeln('Valores informados: ' + IntToStr(fNumB) + ' e '+ IntToStr(fNumA));
+
+Readln;
+end.
+

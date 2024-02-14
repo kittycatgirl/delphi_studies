@@ -1,0 +1,25 @@
+program E05Q10_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  sLetra, sVerificaLetra: String;
+
+begin
+
+Writeln('Digite uma letra: ');
+Readln(sLetra);
+
+case UpCase(sLetra) of
+  'AEIOU':
+   WriteLn('A letra informada eh uma vogal.')
+else
+  WriteLn('A letra informada nao eh vogal!');
+
+
+Readln;
+end.
+ 

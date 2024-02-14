@@ -1,0 +1,28 @@
+program E05Q13;
+
+{$APPTYPE CONSOLE}
+
+{O custo ao consumidor de um carro novo é a soma do custo de fábrica com a
+percentagem do distribuidor e dos impostos (aplicados ao custo de fábrica).
+Supondo que a percentagem do distribuidor seja de 28% e os impostos de 45%,
+escrever um algoritmo que leia o custo de fábrica de um carro e escreva o custo
+ao consumidor.}
+
+uses
+  SysUtils;
+
+const
+  PERC_DISTRIBUIDOR = 28;
+  PERC_IMPOSTO = 45;
+
+var
+  fCustoFabrica, fCustoConsumidor : Double;
+
+begin
+  write('Valor do custo fabria do carro: ');
+  Readln(fCustoFabrica);
+  fCustoConsumidor := fCustoFabrica + (fCustoFabrica * PERC_DISTRIBUIDOR / 100)
+    (fCustoFabrica * PERC_IMPOSTO / 100);
+  Writeln('Preco cosumidor', FormatFloat('0.00', fCustoConsumidor));
+  Readln;
+end.

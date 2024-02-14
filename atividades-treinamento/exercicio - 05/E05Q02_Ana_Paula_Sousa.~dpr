@@ -1,0 +1,21 @@
+program E05Q02_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  fNumA, fNumB : Integer;
+
+begin
+
+Writeln('Escreva dois valores para a soma: ');
+Readln(fNumA);
+Readln(fNumB);
+
+Writeln('Resultado: ' + IntToStr(fNumA + fNumb));
+
+Readln;
+end.
+
