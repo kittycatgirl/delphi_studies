@@ -1,0 +1,54 @@
+program E09Q02_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+ {Dado um valor numérico VAL e uma matriz A 2x3 elabore um algoritmo
+ que calcule e exiba outra matriz B que deverá conter cada elemento da
+ matriz A dividido pelo valor numérico VAL (constante).}
+
+uses
+  SysUtils;
+
+const
+  LINHAS = 2;
+  COLUNAS = 3;
+
+var
+  A, B: array[1..LINHAS, 1..COLUNAS] of Real;
+  VAL: Real;
+  i, j: Integer;
+
+begin
+  Write('Digite o valor numérico VAL: ');
+  ReadLn(VAL);
+
+  WriteLn('Digite os valores da matriz A 2x3:');
+  for i := 1 to LINHAS do
+  begin
+    for j := 1 to COLUNAS do
+    begin
+      Write('Elemento (', i, ',', j, '): ');
+      ReadLn(A[i, j]);
+    end;
+  end;
+
+  for i := 1 to LINHAS do
+  begin
+    for j := 1 to COLUNAS do
+    begin
+      B[i, j] := A[i, j] / VAL;
+    end;
+  end;
+
+  WriteLn('Matriz B (A dividida por VAL):');
+  for i := 1 to LINHAS do
+  begin
+    for j := 1 to COLUNAS do
+    begin
+      Write(B[i, j]:0:2, ' ');
+    end;
+    WriteLn;
+  end;
+
+  ReadLn;
+end.

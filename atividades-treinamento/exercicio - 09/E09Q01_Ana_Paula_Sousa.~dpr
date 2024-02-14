@@ -1,0 +1,42 @@
+program E09Q01_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  matriz: array[1..2, 1..3] of Real;
+  somaPositivos, somaNegativos: Real;
+  i, j: Integer;
+
+begin
+  WriteLn('Digite os valores da matriz 2x3:');
+  for i := 1 to 2 do
+  begin
+    for j := 1 to 3 do
+    begin
+      Write('Elemento (', i, ',', j, '): ');
+      ReadLn(matriz[i, j]);
+    end;
+  end;
+
+  somaPositivos := 0;
+  somaNegativos := 0;
+
+  for i := 1 to 2 do
+  begin
+    for j := 1 to 3 do
+    begin
+      if matriz[i, j] > 0 then
+        somaPositivos := somaPositivos + matriz[i, j]
+      else if matriz[i, j] < 0 then
+        somaNegativos := somaNegativos + matriz[i, j];
+    end;
+  end;
+
+  WriteLn('Soma dos números positivos: ', somaPositivos:0:2);
+  WriteLn('Soma dos números negativos: ', somaNegativos:0:2);
+
+  ReadLn;
+end.

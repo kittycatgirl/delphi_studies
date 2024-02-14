@@ -1,0 +1,45 @@
+unit unClasseAgenda;
+
+interface
+
+uses
+  Classes, unClasseContato;
+
+type
+  TAgenda = class
+  private
+    FNome: String;
+    FContatos: TList;
+
+    property Contatos : TList read FContatos write FContatos;
+
+  public
+      property Nome string read FNome write FNome;
+
+      procedure AddContato(sNome, sTelefone, sEmail: String);
+
+      constructor Create;
+  end;
+
+implementation
+
+{ TAgenda }
+
+procedure TAgenda.AddContato(sNome, sTelefone, sEmail: String);
+var
+  oContato : TContato;
+begin
+  oContato := TContato.Create;
+  oContato.Nome := sNome;
+  oContato.Telefone := sTelefone;
+  oContato.Email := sEmail;
+
+  Contatos.Add(oContato);
+end;
+
+constructor TAgenda.Create;
+begin
+  FContatos := TList.Create;
+end;
+
+end.

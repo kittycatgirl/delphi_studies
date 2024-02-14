@@ -1,0 +1,37 @@
+program E10Q07_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+{A fim de representar empregados em uma firma, crie uma classe chamada Empregado
+que inclui as três informações a seguir como atributos:
+a.um primeiro nome,
+b.um sobrenome
+c.um salário mensal.
+Sua classe deve ter um construtor que inicializa os três atributos.
+Deve forneçer uma propriedade para cada atributo. Se o salário mensal
+não for positivo, configure-o como 0.0. Deve possuir uma função que aplique
+um aumento salarial com base em uma porcentagem passada como parâmetro. E
+então crie duas instâncias da classe e exiba o salário anual de cada instância.
+Então, dê a cada empregado um aumento de 10% e exiba novamente o salário anual
+de cada empregado.}
+
+uses
+  SysUtils, unClasseEmpregado;
+var
+  oEmp1, oEmp2: TEmpregado;
+
+begin
+  oEmp1 := TEmpregado.Create('Jonas', 'Silva', 5000);
+  oEmp2 := TEmpregado.Create('Maite', 'Santana', 6000);
+
+  oEmp1.ExibirSalarioAnual(oEmp1);
+  oEmp2.ExibirSalarioAnual(oEmp2);
+
+  oEmp1.AplicarAumentoSalarial(10);
+  oEmp2.AplicarAumentoSalarial(10);
+
+  Writeln('Apos aumento de 10%:');
+  oEmp1.ExibirSalarioAnual(oEmp1);
+  oEmp2.ExibirSalarioAnual(oEmp2);
+
+  Readln;
+end.

@@ -1,0 +1,47 @@
+unit unClasseItensCarrinho;
+{Crie uma classe para os itens do Carrinho.}
+
+interface
+
+uses
+  SysUtils, unClasseProduto;
+
+type
+  TItemCarrinho = class
+  private
+    FProduto: TProduto;
+    FQuantidade: Integer;
+  public
+    property Produto: TProduto read FProduto write FProduto;
+    property Quantidade: Integer read FQuantidade write FQuantidade;
+
+    function CalcPrecoComDesconto : Double;
+
+    function CalcPrecoComDescontoFormatado : String;
+
+    constructor Create(Produto: TProduto; Quantidade: Integer);
+  end;
+
+implementation
+
+constructor TItemCarrinho.Create(Produto: TProduto; Quantidade: Integer);
+begin
+  FProduto := Produto;
+  FQuantidade := Quantidade;
+end;
+
+function TItemCarrinho.CalcPrecoComDesconto: Double;
+var
+  fSubtotal, fTotal: Double;
+begin
+  fSubtotal := Produto.Preco * FQuantidade;
+  fTotal := fSubtotal - (fSubtotal * (Produto.Desconto / 100));
+  Result := fTotal;
+end;
+
+function TItemCarrinho.CalcPrecoComDescontoFormatado: String;
+begin
+   Result := FormatFloat('0.00',CalcPrecoComDesconto);
+end;
+
+end.

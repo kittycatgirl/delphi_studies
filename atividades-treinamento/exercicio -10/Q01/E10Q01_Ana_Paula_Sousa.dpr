@@ -1,0 +1,41 @@
+program E10Q01_Ana_Paula_Sousa;
+
+{$APPTYPE CONSOLE}
+
+{Faça um programa que contenha uma classe para armazenar livros,
+armazenando para cada livro, código, nome, quantidade de avaliações,
+e somatória de avaliações. Deve conter propriedades para dar acesso aos
+atributos, um procedimento para adicionar um avaliação e uma função para
+retornar a média das avaliações.
+O programa deverá cadastrar dois livros e deve solicitar aos usuários que
+os avaliem. Portanto, o usuário deverá escolher qual livro será avaliado e
+então deixar sua avaliação.
+Ao final deve ser exibido os livros e suas médias de avaliações.}
+
+uses
+  SysUtils, unClasseLivro;
+
+  var
+    oLivro1 : TLivro;
+
+begin
+  try
+  oLivro1 := TLivro.Create;
+  //oLivro1 := TLivro.Free;
+
+  oLivro1.Codigo := 1;
+  oLivro1.Nome := 'livro teste';
+
+  oLivro1.AddAvaliacao(10);
+  oLivro1.AddAvaliacao(8);
+  //oLivro1.AddAvaliacao(0);
+
+  Writeln('Nome do livro: ', oLivro1.Nome);
+  Writeln('Media do livro: ', FormatFloat('0.00',oLivro1.MediaAvaliacao));
+  except
+     on E:Exception do
+     Writeln(E.Message+ '[E10Q01_Ana_Paula_Sousa.program]')
+  end;
+  Readln;
+
+end.
